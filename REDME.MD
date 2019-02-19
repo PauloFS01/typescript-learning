@@ -78,6 +78,8 @@ Once we define a type like "number" or "Date", often we are need convert a recei
   parseInt(this._inputQuantidade.value),
   parseFloat(this._inputValor.value));
 ```
+### Types
+
 When we create a Array we can specify the type of datas that this array will receive:
 ```typescript
 private _negociacoes: Array<Negociacao>;
@@ -94,4 +96,24 @@ Or:
     update(model: Negociacoes): void{
         this._elemento.innerHTML = this.template(model)
     }
+```
+### Generics
+Typescript allows us use generic in a class, therefore we can "subscribe" a parameter for usin diferents types em different subclass:
+```typescript
+ class View<T> {
+   //... omitted
+ }
+```
+### Abstract
+Typescript also allows use of abstract classes and methods.
+### Class:
+```typescript
+ abstrct class View<T> {
+   //... omitted
+ }
+```
+### Methods
+
+```typescript
+abstract template(model: T): string;
 ```

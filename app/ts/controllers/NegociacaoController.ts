@@ -5,6 +5,7 @@ class NegociacaoController {
     private _inputValor: HTMLInputElement;
     private _negociacoes = new Negociacoes();
     private _negociacoesView = new NegociacoesView('#negociacoesView');
+    private _mensagemView = new MensagemView('#mensagemView');
 
     constructor() {
         // querySelector return us a generic type Element, that's why we need cast to a more specific type
@@ -26,5 +27,6 @@ class NegociacaoController {
 
         this._negociacoes.adiciona(negociacao);
         this._negociacoesView.update(this._negociacoes);
+        this._mensagemView.update('Negotiations updated');
     }
 }
