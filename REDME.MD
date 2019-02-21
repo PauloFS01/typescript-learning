@@ -8,7 +8,8 @@
         "target": "es6",
         "outDir": "app/js",
         "noEmitOnError": true,
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "removeComments": true
     },
     "include": [
         "app/ts/**/*"
@@ -24,6 +25,9 @@ The optional confg - **"noEmitOnError": true** - indicates that the js file can'
 ### noImplictAny
 This optional setting disables inplicit type Any. When we use then, we need to specify a type for all variables. Leave this option disabled if you are migrante from another linguage.
 
+### removeComments
+With this optional setting we can avoid that comments go to the production and impact the final size code.
+
 ## Run typescript project
 
 We can change the file "packeage.json" add line ""compile": "tsc"" in script field, so we can copile the project with command:
@@ -36,7 +40,7 @@ We also use a runtime option with "tsc -w", so we can make the same and use a ed
 
 The packeage.json will seems like: 
 
-```jason
+```json
 {
   "name": "alurabank",
   "version": "1.0.0",
@@ -116,4 +120,13 @@ Typescript also allows use of abstract classes and methods.
 
 ```typescript
 abstract template(model: T): string;
+```
+
+### Libs
+
+Typescript can't undestand gloobal variables of external libs like JQuery. So, to resolve this we can use TypeScript definitons files (tsd). For exemple, https://www.npmjs.com/package/@types/jquery is a tsd for JQuery libs.
+If the lib have no a tsd, we can use the "declare var strateg". when we create a variable declared like "any" to avoid that the code do't be copiled.
+```typescript
+declare var $: any;
+protected _elemento: any;
 ```
