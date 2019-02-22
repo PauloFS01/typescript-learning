@@ -1,4 +1,6 @@
-class NegociacoesView  extends View<Negociacoes> {
+import { View } from './View'
+import { Negociacoes } from '../models/index'
+export class NegociacoesView  extends View<Negociacoes> {
 
     update(model: Negociacoes): void{
         this._elemento.innerHTML = this.template(model)
